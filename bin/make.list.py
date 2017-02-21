@@ -3,10 +3,19 @@
 import sys;
 import os.path;
 
-myfile = open(sys.argv[1], "r");
+if len(sys.argv) < 3:
+	print "usage:", sys.argv[0], "existing list", "sra list"
+	sys.exit(0)
+
+myset = set(line.strip() for line in open(sys.argv[2]))
+
+myfile = open(sys.argv[1]);
 
 for s in myfile:
 	line = s.split();
+	if line[0] not in myset:
+		continue
+
 	if len(line) == 3:
 		disk = line[1].split("/")[2];
 		file1 = "/mnt/" + disk + "/sra/" + line[0] + "_1.fasta.gz";
