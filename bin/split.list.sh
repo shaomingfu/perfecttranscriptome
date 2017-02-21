@@ -1,8 +1,9 @@
 #!/bin/bash
 
-head -n 2500  paired.end.random.list | tail -n 2500 > paired.end.random1.list
-head -n 5000  paired.end.random.list | tail -n 2500 > paired.end.random2.list
-head -n 7500  paired.end.random.list | tail -n 2500 > paired.end.random3.list
-head -n 10000 paired.end.random.list | tail -n 2500 > paired.end.random4.list
-head -n 12500 paired.end.random.list | tail -n 2500 > paired.end.random5.list
-head -n 14485 paired.end.random.list | tail -n 1985 > paired.end.random6.list
+file=./common.list
+head -n 100 $file | tail -n 100 > common.list1
+head -n 200 $file | tail -n 100 > common.list2
+head -n 300 $file | tail -n 100 > common.list3
+head -n 400 $file | tail -n 100 > common.list4
+head -n 500 $file | tail -n 100 > common.list5
+head -n 600 $file | tail -n 100 > common.list6
