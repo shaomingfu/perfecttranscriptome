@@ -1,19 +1,19 @@
 #!/bin/bash
 
 if [ "$#" != 1 ]; then
-	echo "usage $0 <disk>"
+	echo "usage $0 list"
 	exit
 fi
 
 bin=`pwd`/
-dir=/mnt/$1/mingfus/sra
-mincoverage=0.01
+dir=$bin/sra
 ref=$bin/gencode.gtf
+mincoverage=0.01
 
 IFS="
 "
 
-for k in `ls $dir`
+for k in `cat $1`
 do
 	cur=$dir/$k
 	if [ ! -s $cur/star.sort.bam ]
