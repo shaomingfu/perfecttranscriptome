@@ -10,6 +10,9 @@ function func
 	mkdir -p $cur
 	cd $cur
 	#$dir/gtfmerge union $list union.gtf
+	$dir/gtfcuff roc gffcmp.union.gtf.tmap 171986 > gffcmp.roc
+	return
+
 	for c in `echo "0 1 2 5 10 20 50"`
 	do
 		$dir/gtfformat filter $c union.gtf union.$c.gtf
