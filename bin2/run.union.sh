@@ -9,7 +9,7 @@ function func
 	cur=$dir/$1/$2.union
 	mkdir -p $cur
 	cd $cur
-	#$dir/gtfmerge union $list union.gtf
+	$dir/gtfmerge union $list union.gtf > merge.log
 	$dir/gtfcuff roc gffcmp.union.gtf.tmap 171986 > gffcmp.roc
 	return
 
@@ -21,10 +21,13 @@ function func
 	cd -
 }
 
-scallop=scallop.B505.0.01
-stringtie=stringtie.1.3.2d.0.01
+func sra sra1
+func sra sra2
 
-func $scallop star
-func $scallop hisat
-func $stringtie star
-func $stringtie hisat
+#scallop=scallop.B505.0.01
+#stringtie=stringtie.1.3.2d.0.01
+#
+#func $scallop star
+#func $scallop hisat
+#func $stringtie star
+#func $stringtie hisat

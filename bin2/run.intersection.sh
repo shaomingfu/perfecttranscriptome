@@ -9,8 +9,8 @@ function func
 	cur=$dir/$1/$2.intersection
 	mkdir -p $cur
 	cd $cur
-	#$dir/gtfmerge intersection $list intersection.gtf
-	#gffcompare -r $ref intersection.gtf -M -N
+	$dir/gtfmerge intersection $list intersection.gtf > merge.log
+	gffcompare -r $ref intersection.gtf -M -N
 	$dir/gtfcuff roc gffcmp.intersection.gtf.tmap 171986 > gffcmp.roc
 	return
 
@@ -22,10 +22,12 @@ function func
 	cd -
 }
 
-scallop=scallop.B505.0.01
-stringtie=stringtie.1.3.2d.0.01
+func sra sra2
 
-func $scallop star
-func $scallop hisat
-func $stringtie star
-func $stringtie hisat
+#scallop=scallop.B505.0.01
+#stringtie=stringtie.1.3.2d.0.01
+#
+#func $scallop star
+#func $scallop hisat
+#func $stringtie star
+#func $stringtie hisat
