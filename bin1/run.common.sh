@@ -37,11 +37,14 @@ do
 	samtools view --threads 6 -b Aligned.out.sam > Aligned.out.bam
 	samtools sort --threads 6 Aligned.out.bam > star.sort.bam
 
-	echo "start running scallop ..." >> perfect.log; date >> perfect.log
-	{ /usr/bin/time -v scallop -i star.sort.bam -o scallop.gtf --min_transcript_coverage $mincoverage --library_type first > scallop.log; } 2> scallop.time
+#echo "start running scallop ..." >> perfect.log; date >> perfect.log
+#{ /usr/bin/time -v scallop -i star.sort.bam -o scallop.gtf --min_transcript_coverage $mincoverage --library_type first > scallop.log; } 2> scallop.time
 
-	echo "start running stringtie ..." >> perfect.log; date >> perfect.log
-	{ /usr/bin/time -v stringtie star.sort.bam -o stringtie.gtf -c $mincoverage --rf > stringtie.log; } 2> stringtie.time
+#echo "start running stringtie ..." >> perfect.log; date >> perfect.log
+#{ /usr/bin/time -v stringtie star.sort.bam -o stringtie.gtf -c $mincoverage --rf > stringtie.log; } 2> stringtie.time
+
+	rm "$id"_1.fasta "$id"_2.fasta Aligned.out.* Chimeric.out.* Log.* SJ.out*
+	#rm star.sort.bam
 
 	echo "finish instance $id ..." >> perfect.log; date >> perfect.log
 done
