@@ -23,8 +23,10 @@ do
 		continue;
 	fi
 
+	s=`ls -la $cur/star.sort.bam | awk '{print $5}'`
+
 	x1=`echo $x | awk '{print $4}'`
 	x2=`echo $x | awk '{print $6}'`
 
-	echo $k $x1 $x2
+	echo $k $x1 $x2 $s
 done
