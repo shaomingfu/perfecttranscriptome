@@ -28,14 +28,25 @@ else
 	exit
 fi
 
-# check exisits
+# check exisits directory
 for i in `ls $dir | grep sra`
 do
 	if [ -d $dir/$i/$id ]; then
-		echo $i contains $id
-		exit
+		if [ -s $dir/$i/$id/star.sort.bam ]; then
+			echo $i contains $id/star.sort.bam
+			exit
+		fi
+
+		if [ "$i" != "$dirid" ]; then
+			echo $i contains $id but given $dirid
+			exit
+		fi
 	fi
 done
+
+echo "run $id at $dirid"
+
+exit
 
 cur=$dir/$dirid/$id
 mkdir -p $cur

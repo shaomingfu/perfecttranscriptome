@@ -26,4 +26,4 @@ do
 	echo `pwd`/align.single.sh $id $f1 $f2 $dirid >> $scripts
 done
 
-nohup cat $scripts | xargs -L 1 -P 4 -I CMD bash -c CMD 1> $dirid.log 2> $dirid.err &
+nohup cat $scripts | xargs -L 1 -P 4 -I CMD bash -c CMD &
